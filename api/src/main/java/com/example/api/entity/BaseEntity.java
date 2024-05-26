@@ -1,4 +1,4 @@
-package com.example.domain.entity;
+package com.example.api.entity;
 
 
 import jakarta.persistence.EntityListeners;

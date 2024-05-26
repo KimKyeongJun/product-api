@@ -1,11 +1,12 @@
-package com.example.domain.entity.category;
+package com.example.api.entity.category;
 
 
-import com.example.domain.entity.BaseEntity;
+import com.example.api.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Comment;
 
 @Entity
 @Table(name = "category")
@@ -16,5 +17,9 @@ public class Category extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 20, nullable = false)
+    @Comment("카테고리명")
+    private String name;
 
 }
