@@ -39,9 +39,8 @@ public class Product extends BaseEntity {
     @Comment("상품 가격")
     private Integer price;
 
-    @Column(nullable = false)
+    @Column
     @Comment("상태")
-    @ColumnDefault("ACTIVE")
     @Builder.Default
     @Enumerated(EnumType.STRING)
     private ProductStatus status = ProductStatus.ACTIVE;
