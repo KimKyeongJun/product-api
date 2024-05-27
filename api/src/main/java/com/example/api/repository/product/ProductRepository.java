@@ -16,4 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
 
     @Query("SELECT p FROM Product p WHERE p.price = (SELECT MIN(p2.price) FROM Product p2 WHERE p2.category = p.category)")
     List<Product> findLowestPriceByCategory();
+
+    Long countByCategory(Category category);
 }

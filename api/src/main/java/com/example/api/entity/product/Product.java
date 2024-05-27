@@ -5,15 +5,16 @@ import com.example.api.entity.BaseEntity;
 import com.example.api.entity.brand.Brand;
 import com.example.api.entity.category.Category;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 
 @Entity
 @Table(name = "product")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class Product extends BaseEntity {
 
     @Id
@@ -38,8 +39,22 @@ public class Product extends BaseEntity {
     @Comment("상품 가격")
     private Integer price;
 
+    @Column(nullable = false)
+    @Comment("상태")
+    @ColumnDefault("ACTIVE")
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private ProductStatus status = ProductStatus.ACTIVE;
+
 //    @Column
 //    @Comment("전시 여부")
 //    private boolean isDisplay;
 
+    public void updatePrice(Integer price) {
+        this.price = price;
+    }
+
+    public void updateStatus(ProductStatus productStatus) {
+        this.status = productStatus;
+    }
 }
