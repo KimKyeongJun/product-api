@@ -16,11 +16,11 @@
 - API 테스트
     - 구현 1) 카테고리 별로 최저가격인 브랜드와 가격을 조회
     - GET [**/api/products/lowest-price-by-category**](http://localhost:8080/swagger-ui/index.html#/product-controller/getLowestPriceByCategory)
-- 구현 2) 단일 브랜드로 전체 카테고리 상품을 구매할 경우 최저가격인 브랜드와 총액 조회
+    - 구현 2) 단일 브랜드로 전체 카테고리 상품을 구매할 경우 최저가격인 브랜드와 총액 조회
     - **GET [/api/products/min-price-by-brand](http://localhost:8080/swagger-ui/index.html#/product-controller/getMinPriceByBrand)**
-- 구현 3) 특정 카테고리에서 최저가격 브랜드와 최고가격 브랜드 조회
+    - 구현 3) 특정 카테고리에서 최저가격 브랜드와 최고가격 브랜드 조회
     - **GET [/api/products/min-max-by-category](http://localhost:8080/swagger-ui/index.html#/product-controller/getMinMaxProductByCategoryName)**
-- 구현 4) 상품, 브랜드 등록, 수정, 삭제 API 구현
+    - 구현 4) 상품, 브랜드 등록, 수정, 삭제 API 구현
     - **POST** 상품 등록 **[/api/products](http://localhost:8080/swagger-ui/index.html#/product-controller/registerProduct)**
     - **DELETE** 상품 삭제 **[/api/products/{id}](http://localhost:8080/swagger-ui/index.html#/product-controller/deleteProduct)**
     - **PATCH** 상품 수정 **[/api/products/{id}](http://localhost:8080/swagger-ui/index.html#/product-controller/modifyProduct)**
