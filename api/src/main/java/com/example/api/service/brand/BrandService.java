@@ -24,13 +24,15 @@ public class BrandService {
 
 
     @Transactional
-    public void deleteBrand(Long id) {
+    public Brand deleteBrand(Long id) {
         Brand brand = brandRepository.findById(id).orElseThrow(() -> new NoSuchElementException("해당 브랜드가 존재하지 않습니다."));
         brand.updateStatus(BrandStatus.INACTIVE);
+
+        return brand;
     }
 
     @Transactional
-    public void createBrand(BrandRegisterRequest brandRegisterRequest) {
+    public Brand createBrand(BrandRegisterRequest brandRegisterRequest) {
         Optional<Brand> brand = brandRepository.findByName(brandRegisterRequest.getName());
 
         if (brand.isPresent()) {
@@ -39,10 +41,12 @@ public class BrandService {
 
         Brand newBrand = brandRegisterRequest.toEntity();
         brandRepository.save(newBrand);
+
+        return newBrand;
     }
 
     @Transactional
-    public void modifyBrand(Long id, BrandModifyRequest brandModifyRequest) {
+    public Brand modifyBrand(Long id, BrandModifyRequest brandModifyRequest) {
         Brand brand = brandRepository.findById(id).orElseThrow(() -> new NoSuchElementException("해당 브랜드가 존재하지 않습니다."));
 
         Optional<Brand> existBrand = brandRepository.findByName(brandModifyRequest.getName());
@@ -52,5 +56,7 @@ public class BrandService {
         }
 
         brand.updateName(brandModifyRequest.getName());
+
+        return brand;
     }
 }

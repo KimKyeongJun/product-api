@@ -25,4 +25,8 @@ spring:
         format_sql: true
     defer-datasource-initialization: true
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
 
