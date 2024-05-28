@@ -20,6 +20,12 @@ public class ProductRegisterRequest {
     @Positive(message = "상품의 가격은 0보다 커야합니다.")
     private Integer price;
 
+    public ProductRegisterRequest(Long brandId, Long categoryId, int price) {
+        this.brandId = brandId;
+        this.categoryId = categoryId;
+        this.price = price;
+    }
+
     public Product toEntity(Brand brand, Category category) {
         return Product.builder()
                 .brand(brand)

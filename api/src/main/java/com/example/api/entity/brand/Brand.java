@@ -2,6 +2,7 @@ package com.example.api.entity.brand;
 
 
 import com.example.api.entity.BaseEntity;
+import com.example.api.entity.product.ProductStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
@@ -22,6 +23,12 @@ public class Brand extends BaseEntity {
     @Comment("브랜드명")
     private String name;
 
+    @Column
+    @Comment("상태")
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private BrandStatus status = BrandStatus.ACTIVE;
+
 //    @Column(length = 12, nullable = false)
 //    @Comment("사업자 등록번호")
 //    private String companyNo;
@@ -40,5 +47,9 @@ public class Brand extends BaseEntity {
 
     public void updateName(String name) {
         this.name = name;
+    }
+
+    public void updateStatus(BrandStatus brandStatus) {
+        this.status = brandStatus;
     }
 }

@@ -2,9 +2,11 @@ package com.example.api.controller.product.request;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class ProductModifyRequest {
 
     @NotNull(message = "상품 아이디는 필수 입력값입니다.")
