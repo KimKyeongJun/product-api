@@ -1,5 +1,35 @@
 # product-api
 
+# 구현 범위
+
+- Java Version - 17
+- Spring Boot Version - 3.2.5
+
+# 실행 방법
+
+- API 모듈 밑에 있는 ApiApplication 파일 실행
+- http://localhost:8080/swagger-ui/index.html 접속
+- API 테스트
+    - 구현 1) 카테고리 별로 최저가격인 브랜드와 가격을 조회
+        - GET
+        - [**/api/products/lowest-price-by-category**](http://localhost:8080/swagger-ui/index.html#/product-controller/getLowestPriceByCategory)
+    - 구현 2) 단일 브랜드로 전체 카테고리 상품을 구매할 경우 최저가격인 브랜드와 총액 조회
+        - **GET**
+        - [**/api/products/min-price-by-brand**](http://localhost:8080/swagger-ui/index.html#/product-controller/getMinPriceByBrand)
+    - 구현 3) 특정 카테고리에서 최저가격 브랜드와 최고가격 브랜드 조회
+        - **GET**
+        - [**/api/products/min-max-by-category**](http://localhost:8080/swagger-ui/index.html#/product-controller/getMinMaxProductByCategoryName)
+    - 구현 4) 상품, 브랜드 등록, 수정, 삭제 API 구현
+
+# 구현 항목
+
+- [x]  카테고리 별 최저가격 브랜드와 상품 가격**,** 총액을 조회하는 **API**
+- [x]  단일 브랜드로 모든 카테고리 상품을 구매할 때 최저가격에 판매하는 브랜드와 카테고리의 상품가격**,** 총액을
+조회하는 **API**
+- [x]  카테고리 이름으로 최저**,** 최고 가격 브랜드와 상품 가격을 조회하는 **API**
+- [x]  브랜드 및 상품을 추가 **/** 업데이트 **/** 삭제하는 **API**
+- [x]  **ProductService Test Code 작성**
+
 # 요구사항 정의
 ## 보유 카테고리
 * 상의
